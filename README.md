@@ -16,6 +16,13 @@ source venv/Scripts/activate
 Перейдите в папку с приложением /app/ установите зависимости и запустите проект
 ```
 pip install -r requirements.txt
+```
+Выполните миграции
+```
+python manage.py makemigrations
+python manage.py migrate
+```
+После этого проект будет готов к работе по команде
+```
 python manage.py runserver
 ```
-После этого проект будет готов к работе
