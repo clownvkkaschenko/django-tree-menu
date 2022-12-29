@@ -1,0 +1,29 @@
+{% load static %}
+{% load draw_menu %}
+<html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <link rel="icon" href="https://i.pinimg.com/736x/d4/b2/d9/d4b2d920269d91529993247a0f2089f4.jpg" type="image">
+      <link rel="stylesheet" href="{% static 'css/static.css' %}" type="text/css">
+      <title>{% block title %}Тестовое задание{% endblock %}</title>
+  </head>
+  <body>
+      <div class="header">
+          {% block header %}
+            <h1 class="header">
+              {% if request.get_full_path == '/' %}
+                Главная страница
+              {% else %}
+                Вы находитесь на странице: {{ request.get_full_path }}
+              {% endif %}
+            </h1>
+          {% endblock %}
+      </div>
+      <div class="main-content">
+          <div>{% draw_menu 'Python' %}</div>
+          {% if request.get_full_path != '/' %}
+            <a href="/">Вернуться на главную страницу</a>
+          {% endif %}
+      </div>
+  </body>
+</html>
